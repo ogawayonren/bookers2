@@ -75,4 +75,6 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
 
   config.hosts << "ff192c8693764c6990390e40ff32a1b7.vfs.cloud9.ap-northeast-1.amazonaws.com"
+
+  config.active_job.queue_adapter = :inline
 end
