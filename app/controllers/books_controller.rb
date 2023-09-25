@@ -1,7 +1,5 @@
 class BooksController < ApplicationController
-  def new
-    @book = Book.new
-  end
+
 
     # 投稿データの保存
   def create
@@ -10,14 +8,21 @@ class BooksController < ApplicationController
     @book.save
     @user = @book.user
     redirect_to books_path
+
+  end
+
+  def edit
+    @book = Book.find(params[:id])
   end
 
   def index
+    @book = Book.new
     @books = Book.all
   end
 
   def show
     @book = Book.find(params[:id])
+    @user = @book.user
   end
 
   def destroy
@@ -33,3 +38,13 @@ class BooksController < ApplicationController
     params.require(:book).permit(:title, :body)
   end
 end
+
+
+
+
+
+
+
+
+
+
